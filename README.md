@@ -5,6 +5,7 @@ The test should take between 10 and 45 minutes.
 
 ### Objective 1:
 When a campaign row is clicked, it should be highlighted, and the right part of the screen should display campaign details (use component `CampaignDetails`).
+![Objective 1 UI](https://raw.githubusercontent.com/octoly/jobs-frontend/master/doc/1.png)
 
 ### Objective 2:
 - Campaigns #2 and #4 have a note, it should be displayed in the sidebar when selected
