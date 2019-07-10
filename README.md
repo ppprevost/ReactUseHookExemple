@@ -12,6 +12,7 @@ When a campaign row is clicked, it should be highlighted, and the right part of 
 - The `Note` section of the sidebar should be editable.
 - The `Clear` button should empty the note
 - When selecting another campaign, the current text should be properly replaced by the new campaign note
+![Objective 2 UI](https://raw.githubusercontent.com/octoly/jobs-frontend/master/doc/2.gif)
 
 ## Keep in mind:
 - All the UI is already done! you should be dealing only with logic and state management
