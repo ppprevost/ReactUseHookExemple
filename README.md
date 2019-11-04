@@ -16,5 +16,4 @@ When a campaign row is clicked, it should be highlighted, and the right part of 
 
 ## Keep in mind:
 - All the UI is already done! you should be dealing only with logic and state management
-- You may need to change some function component to class components ;-)
 - Feel free to use any library you're comfortable with
