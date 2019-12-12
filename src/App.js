@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext, useReducer} from 'react'
 import 'bootstrap/scss/bootstrap.scss'
 import CampaignsList from './CampaignsList'
 import SideBar from './SideBar'
@@ -6,6 +6,7 @@ import product1Image from './images/product1.jpg'
 import product2Image from './images/product2.jpg'
 import product3Image from './images/product3.jpg'
 import product4Image from './images/product4.jpg'
+
 
 const campaigns = [
   {
@@ -50,16 +51,39 @@ const campaigns = [
   }
 ]
 
-const App = () => (
-  <div className="d-flex">
-    <div className="flex-grow-1">
-      <div className="m-5">
-        <h1 className="mb-3">Campaigns</h1>
-        <CampaignsList campaigns={campaigns} />
+const reducer = (state, action)=> {
+  switch (action.type) {
+    case 'CHANGE_CAMPAIGN':
+      console.log(state)
+      return {...state, activeCampaign: action.campaign}
+  }
+
+
+}
+
+const initialContext = {
+  activeCampaign:null,
+}
+
+export const CampaignContext = React.createContext(initialContext);
+
+export const useCampaignData = ()=>useContext(CampaignContext)
+
+const App = () => {
+  const contextValue = useReducer(reducer, initialContext)
+  return (
+    <CampaignContext.Provider value={contextValue}>
+      <div className="d-flex">
+        <div className="flex-grow-1">
+          <div className="m-5">
+            <h1 className="mb-3">Campaigns</h1>
+            <CampaignsList campaigns={campaigns} />
+          </div>
+        </div>
+        <SideBar />
       </div>
-    </div>
-    <SideBar />
-  </div>
-)
+    </CampaignContext.Provider>
+   )
+}
 
 export default App

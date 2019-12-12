@@ -1,8 +1,22 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import StatusBadge from '../common/StatusBadge'
 
-const CampaignDetails = ({ campaign: { id, name, image, status, quantity, initialQuantity, audience, note } }) => (
-  <div className="text-center d-flex flex-column align-items-center py-5 px-4">
+const CampaignDetails = ({ campaign: { id, name, image, status, quantity, initialQuantity, audience, note } }) => {
+  console.log(note)
+  const [noted, setNoted] =useState(note)
+  const clearData=()=> {
+    setNoted('')
+  }
+
+  const handleChange=(e)=>{
+    setNoted(e.target.value)
+  }
+
+  useEffect(()=>{
+    setNoted(note)
+  },[note])
+
+  return(<div className="text-center d-flex flex-column align-items-center py-5 px-4">
     <img
       src={image}
       alt={name}
@@ -29,13 +43,13 @@ const CampaignDetails = ({ campaign: { id, name, image, status, quantity, initia
     </ul>
 
     <h4>Note</h4>
-    <textarea className="form-control" />
+    <textarea className="form-control" value={noted} onChange={handleChange} />
     <div className="mt-2 w-100 text-right">
-      <button className="btn btn-sm btn-secondary">
+      <button onClick={clearData} className="btn btn-sm btn-secondary">
         Clear
       </button>
     </div>
-  </div>
-)
+  </div>)
+}
 
 export default CampaignDetails

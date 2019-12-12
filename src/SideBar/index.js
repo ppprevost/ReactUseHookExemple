@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import PlaceHolder from './PlaceHolder'
+import CampaignDetails from "./CampaignDetails";
+import { CampaignContext, useCampaignData } from "../App";
 
 const SideBar = () => (
   <div
@@ -10,13 +12,20 @@ const SideBar = () => (
       borderLeft: "solid 5px #e9ebef"
     }}
   >
-    <SideBarContent />
+    <SideBarContent
+    />
   </div>
 )
 
-const SideBarContent = () => (
-  <PlaceHolder />
+const SideBarContent = () => {
+  const [{activeCampaign}] = useCampaignData()
+  return (<>
+      {!activeCampaign && <PlaceHolder />}
+      {activeCampaign && <CampaignDetails campaign={activeCampaign} />}
+  </>
+  )
   // use CampaignDetails component here to show selected campaign details
-)
+}
+
 
 export default SideBar
