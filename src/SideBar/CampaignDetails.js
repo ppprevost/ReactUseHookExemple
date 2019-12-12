@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import StatusBadge from '../common/StatusBadge'
 
 const CampaignDetails = ({ campaign: { id, name, image, status, quantity, initialQuantity, audience, note } }) => {
-  console.log(note)
   const [noted, setNoted] =useState(note)
   const clearData=()=> {
     setNoted('')

@@ -54,7 +54,6 @@ const campaigns = [
 const reducer = (state, action)=> {
   switch (action.type) {
     case 'CHANGE_CAMPAIGN':
-      console.log(state)
       return {...state, activeCampaign: action.campaign}
   }
 
